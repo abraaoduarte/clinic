@@ -1,0 +1,17 @@
+@import "bootstrap/scss/bootstrap";
+
+@import "font-awesome/scss/font-awesome";
+
+$color-font: #333;
+.content__form{
+	margin: 70px 0;
+	border: 1px solid #CCC;
+	padding: 20px;
+	h1{
+		font-size: 22px;
+		color: $color-font;
+		text-transform: uppercase;
+		border-bottom: 1px solid #CCC;
+		padding-bottom: 10px;
+	}
+}
