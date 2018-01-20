@@ -20,6 +20,12 @@
     },
     "dependencies": {
         "bootstrap": "4.0.0-beta.3",
+        "datatables.net": "^1.10.16",
+        "datatables.net-bs": "^1.10.16",
+        "datatables.net-bs4": "^1.10.16",
+        "datatables.net-buttons": "^1.5.1",
+        "datatables.net-buttons-bs": "^1.5.1",
+        "datatables.net-buttons-bs4": "^1.5.1",
         "font-awesome": "^4.7.0",
         "jquery-mask-plugin": "^1.14.13",
         "popper.js": "^1.12.9",

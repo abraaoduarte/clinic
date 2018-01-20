@@ -1,10 +1,10 @@
 <div class="btn-group">
-  <a href="{{ url('admin/user/edit/'.$user->id) }}" class="btn btn-primary btn-sm">
+  <a href="{{ url('admin/user/edit/'.$id) }}" class="btn btn-primary btn-sm">
     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
   </a>
 </div>
 <div class="btn-group">
-	{!! Form::open(['url' => ['admin/user/delete', $user->id],
+	{!! Form::open(['url' => ['admin/user/delete', $id],
                   'method' => 'delete']) !!}
   	{!! Form::button('<i class="fa fa-times" aria-hidden="true"></i>',
   		              ['type' => 'submit',

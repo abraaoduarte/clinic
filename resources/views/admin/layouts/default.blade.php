@@ -11,7 +11,8 @@
 <body>
 	@include('admin.partials.menu')
   <div class="container">
-	 @yield('content')
+  	@include('flash::message')
+	@yield('content')
   </div>
 	@include('admin.partials.footer')
 	@include('admin.partials.js')

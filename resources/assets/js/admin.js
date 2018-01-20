@@ -1,6 +1,6 @@
 import swal from 'sweetalert';
 
-$('.js-button-delete').on('click', event => {
+$('.js-datatable').on('click', '.js-button-delete', event => {
 	event.stopPropagation();
 	event.preventDefault();
 	

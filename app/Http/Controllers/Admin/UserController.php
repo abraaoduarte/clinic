@@ -3,29 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
-use Yajra\Datatables\Datatables;
+use App\DataTables\UsersDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 
 class UserController extends Controller
 {
-    
 
-    public function apiDataTable()
+    public function index(UsersDataTable $users)
     {
-        $users = User::select(['name', 'email', 'id']);
-        return Datatables::of($users)
-            ->addColumn('action', function($user) {
-                return view('admin.users.actions', compact('user', $user))->render();
-            })
-            ->make(true);
-    }
-
-    public function index()
-    {
-        $users = User::all();
-    	return view('admin.users.index')->with('users', $users);
+        return $users->render('admin.users.index');
     }
 
     public function create()

@@ -22,9 +22,6 @@ Route::prefix('admin')->group(function () {
 	Route::put('user/update/{id}', 'Admin\UserController@update');
 	Route::delete('user/delete/{id}', 'Admin\UserController@delete');
 	Route::post('user/store', 'Admin\UserController@store');
-	//DataTable
-	Route::get('user/apiDataTable', 
-		       'Admin\UserController@apiDataTable')->name('user/dataTable');
 
 	Route::get('patient', 'Admin\PatientController@index');
 	Route::get('patient/create', 'Admin\PatientController@create');
@@ -33,6 +30,5 @@ Route::prefix('admin')->group(function () {
 	Route::put('patient/update/{id}', 'Admin\PatientController@update');
 	Route::delete('patient/delete/{id}', 'Admin\PatientController@delete');
 
-	Route::get('patient/apiDataTable', 
-		       'Admin\PatientController@apiDataTable')->name('patient/dataTable');
+	
 });

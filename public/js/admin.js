@@ -140,7 +140,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_sweetalert___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_sweetalert__);
 
 
-$('.js-button-delete').on('click', function (event) {
+$('.js-datatable').on('click', '.js-button-delete', function (event) {
 	event.stopPropagation();
 	event.preventDefault();
 
