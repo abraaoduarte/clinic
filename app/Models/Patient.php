@@ -31,4 +31,9 @@ class Patient extends Model
         'birthday',
     ];
 
+    public function schedule()
+    {
+        return $this->belongsTo('App\Models\Schedule');
+    }
+
 }

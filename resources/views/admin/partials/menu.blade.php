@@ -16,7 +16,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{{ url('admin/user/create') }}">Criar Usuário</a>
-            <a class="dropdown-item" href="{{ url('admin/user') }}">Relatório</a>
+            <a class="dropdown-item" href="{{ route('users') }}">Relatório</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -24,8 +24,8 @@
             Médicos
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ url('admin/doctor/create') }}">Criar Médicos</a>
-            <a class="dropdown-item" href="{{ url('admin/doctor') }}">Relatório</a>
+            <a class="dropdown-item" href="{{ route('doctor.create') }}">Criar Médicos</a>
+            <a class="dropdown-item" href="{{ route('doctors') }}">Relatório</a>
           </div>
         </li> 
         <li class="nav-item dropdown">
@@ -33,8 +33,8 @@
             Pacientes
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ url('admin/patient/create') }}">Criar Paciente</a>
-            <a class="dropdown-item" href="{{ url('admin/patient') }}">Relatório</a>
+            <a class="dropdown-item" href="{{ route('patient.create') }}">Criar Paciente</a>
+            <a class="dropdown-item" href="{{ route('patients') }}">Relatório</a>
           </div>
         </li> 
         <li class="nav-item dropdown">
@@ -42,8 +42,8 @@
             Agendamento
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ url('admin/schedule/create') }}">Marcar Consulta</a>
-            <a class="dropdown-item" href="{{ url('admin/schedule') }}">Relatório</a>
+            <a class="dropdown-item" href="{{ route('schedule.create') }}">Marcar Consulta</a>
+            <a class="dropdown-item" href="{{ route('schedules') }}">Relatório</a>
           </div>
         </li>        
       </ul>

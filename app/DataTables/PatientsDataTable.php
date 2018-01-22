@@ -2,10 +2,10 @@
 
 namespace App\DataTables;
 
-use App\Models\User;
+use App\Models\Patient;
 use Yajra\DataTables\Services\DataTable;
 
-class UsersDataTable extends DataTable
+class PatientsDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -16,7 +16,7 @@ class UsersDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
-            ->addColumn('action', 'admin.users.actions')
+            ->addColumn('action', 'admin.patients.actions')
             ->editColumn('created_at', function ($query) {
                 return $query->created_at ? $query->created_at->format('d/m/Y') : '';
             })
@@ -41,9 +41,9 @@ class UsersDataTable extends DataTable
      * @param \App\User $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(User $model)
+    public function query(Patient $model)
     {
-        return $model->newQuery()->select('id', 'name', 'email', 'updated_at', 'created_at');
+        return $model->newQuery()->select('id', 'name', 'updated_at', 'created_at');
     }
 
     /**
@@ -92,6 +92,7 @@ class UsersDataTable extends DataTable
         ];
     }
 
+
     /**
      * Get filename for export.
      *
@@ -99,6 +100,6 @@ class UsersDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Users_' . date('YmdHis');
+        return 'Patients_' . date('YmdHis');
     }
 }

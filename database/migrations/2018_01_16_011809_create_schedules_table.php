@@ -15,6 +15,16 @@ class CreateSchedulesTable extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->increments('id');
+            $table->datetime('date');
+            $table->text('description');
+            $table->integer('doctor_id')->unsigned();
+            $table->integer('patient_id')->unsigned();
+            $table->integer('user_id')->unsigned();
+
+            $table->foreign('doctor_id')->references('id')->on('doctors');
+            $table->foreign('patient_id')->references('id')->on('patients');
+            $table->foreign('user_id')->references('id')->on('users');
+
             $table->timestamps();
         });
     }
