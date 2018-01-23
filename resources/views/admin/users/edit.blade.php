@@ -4,7 +4,7 @@
 
 <div class="content__form">
 	<h1>Editar Usuário <small class="text-dark">({{ $user->name }})</small></h1>
-	{!! Form::open(['url' => ['admin/user/update', $user->id], 'method' => 'put']) !!}
+	{!! Form::open(['route' => ['user.edit', $user->id], 'method' => 'put']) !!}
 	<div class="row">
 		<div class="col-6">
 			<div class="form-group">

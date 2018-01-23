@@ -4,7 +4,7 @@
 
 <div class="content__form">
 	<h1>Cadastrar Paciente</h1>
-	{!! Form::open(['url' => 'admin/patient/store', 'method' => 'post']) !!}
+	{!! Form::open(['route' => 'patient.create', 'method' => 'post']) !!}
 	<div class="row">
 		<div class="col-6">
 			<div class="form-group">

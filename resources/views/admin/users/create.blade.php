@@ -4,7 +4,7 @@
 
 <div class="content__form">
 	<h1>Cadastrar Usuário</h1>
-	{!! Form::open(['url' => 'admin/user/store', 'method' => 'post']) !!}
+	{!! Form::open(['route' => 'user.create', 'method' => 'post']) !!}
 	<div class="row">
 		<div class="col-6">
 			<div class="form-group">

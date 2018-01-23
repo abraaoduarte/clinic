@@ -28,7 +28,7 @@ class PatientController extends Controller
         $request['birthday'] = convert_date($request->input('birthday'));
         $patient = Patient::create($request->all());
         flash('Paciente Cadastrado!')->success();
-        return redirect('admin/patient');
+        return redirect()->route('patients');
     }
 
 
@@ -45,7 +45,7 @@ class PatientController extends Controller
         $patient->update($request->all());
 
         flash('Paciente Atualizado!')->success();
-        return redirect('admin/patient');
+        return redirect()->route('patients');
 
     }
 
@@ -54,7 +54,7 @@ class PatientController extends Controller
         $patient = Patient::find($id);
         $patient->delete();
         flash('Paciente Apagado!')->error();
-        return redirect('admin/patient');
+        return redirect()->route('patients');
     }
 
     

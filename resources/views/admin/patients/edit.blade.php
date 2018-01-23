@@ -5,7 +5,7 @@
 <div class="content__form">
 	<h1>Editar Paciente</h1>
 	{!! Form::open(
-                 ['url' => ['admin/patient/update', $patient->id],
+                 ['route' => ['patient.edit', $patient->id],
                  'method' => 'put',
                  'class' => 'form-horizontal'])
   !!}

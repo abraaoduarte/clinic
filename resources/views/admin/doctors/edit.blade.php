@@ -6,7 +6,7 @@
 
 	<div class="content__form">
 		<h1>Editar Cadastro do Médico <small>({{ $doctor->name}})</small></h1>
-		{!! Form::open(['route' => ['doctor.update', $doctor->id], 'method' => 'put']) !!}
+		{!! Form::open(['route' => ['doctor.edit', $doctor->id], 'method' => 'put']) !!}
 
 			<div class="row">
 				<div class="col-6">

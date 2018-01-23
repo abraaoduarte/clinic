@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 
+
 class UserController extends Controller
 {
 
@@ -26,7 +27,7 @@ class UserController extends Controller
     	$request['password'] = bcrypt($request->input('password'));
         $user = User::create($request->all());
         flash('Usuário Cadastrado!')->success();
-        return redirect('admin/user');
+        return redirect()->route('users');
     }
 
     public function edit($id)
@@ -41,7 +42,7 @@ class UserController extends Controller
         $request['password'] = bcrypt($request->input('password'));
         $user->update($request->all());
         flash('Usuário Atualizado!')->success();
-        return redirect('admin/user');
+        return redirect()->route('users');
     }
 
     public function delete($id)
@@ -50,6 +51,8 @@ class UserController extends Controller
         $user->delete();
 
         flash('Usuário Deletado!')->error();
-        return redirect('admin/user');
+        return redirect()->route('users');
     }
+
+
 }
