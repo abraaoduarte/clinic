@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::get('patient/{id}/edit', 'Admin\PatientController@edit')->name('patient.edit');
 		Route::put('patient/{id}/edit', 'Admin\PatientController@update')->name('patient.edit');
 		Route::delete('patient/{id}/delete', 'Admin\PatientController@delete')->name('patient.delete');
+		Route::get('patient/search', 'Admin\PatientController@search')->name('patient.search');
 
 		Route::get('doctors', 'Admin\DoctorController@index')->name('doctors');
 		Route::get('doctor/create', 'Admin\DoctorController@create')->name('doctor.create');
@@ -41,13 +42,17 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::get('doctor/{id}/edit', 'Admin\DoctorController@edit')->name('doctor.edit');
 		Route::put('doctor/{id}/edit', 'Admin\DoctorController@update')->name('doctor.edit');
 		Route::delete('doctor/{id}/delete', 'Admin\DoctorController@delete')->name('doctor.delete');
+		Route::get('doctor/search', 'Admin\DoctorController@search')->name('doctor.search');
 
 		Route::get('schedules', 'Admin\ScheduleController@index')->name('schedules');
 		Route::get('schedule/create', 'Admin\ScheduleController@create')->name('schedule.create');
 		Route::post('schedule/create', 'Admin\ScheduleController@store')->name('schedule.create');
 		Route::get('schedule/{id}/edit', 'Admin\ScheduleController@edit')->name('schedule.edit');
 		Route::put('schedule/{id}/edit', 'Admin\ScheduleController@update')->name('schedule.edit');
-		Route::delete('schedule/{id}/delete', 'Admin\ScheduleController@delete')->name('schedule.delete');
+		Route::delete('schedule/{id}/delete', 'Admin\ScheduleController@delete')
+			->name('schedule.delete');
+		
+		
 	});
 });
 

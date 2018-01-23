@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Doctor;
 use App\Models\Schedule;
 use App\Models\Patient;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\DataTables\SchedulesDataTable;
 use App\Http\Requests\StoreScheduleRequest;
@@ -21,13 +22,7 @@ class ScheduleController extends Controller
 
     public function create()
     {
-    	$users = User::pluck('name', 'id');
-    	$doctors = Doctor::pluck('name', 'id');
-    	$patients = Patient::pluck('name', 'id');
-    	return view('admin.schedules.create')
-    			->with('users', $users)
-    			->with('doctors', $doctors)
-    			->with('patients', $patients);
+    	return view('admin.schedules.create');
     }
 
     public function store(StoreScheduleRequest $request)
@@ -41,16 +36,13 @@ class ScheduleController extends Controller
 
     public function edit($id)
     {
-    	$users = User::pluck('name', 'id');
-    	$doctors = Doctor::pluck('name', 'id');
-    	$patients = Patient::pluck('name', 'id');
-
     	$schedule = Schedule::find($id);
+        $doctor = Doctor::find($schedule->doctor_id)->pluck('name', 'id');
+        $patient = Patient::find($schedule->patient_id)->pluck('name', 'id');
     	return view('admin.schedules.edit')
-    			->with('schedule', $schedule)
-    			->with('users', $users)
-    			->with('doctors', $doctors)
-    			->with('patients', $patients);
+            ->with('schedule', $schedule)
+            ->with('doctor', $doctor)
+            ->with('patient', $patient);
     }
 
     public function update(UpdateScheduleRequest $request, $id)
@@ -72,4 +64,6 @@ class ScheduleController extends Controller
         flash('Agendamento Apagado!')->error();
         return redirect()->route('schedules');
     }
+
+    
 }

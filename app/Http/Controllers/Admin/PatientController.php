@@ -57,6 +57,14 @@ class PatientController extends Controller
         return redirect()->route('patients');
     }
 
+    public function search(Request $request)
+    {
+        $patients = Patient::select('id', 'name as text')
+            ->where('name', 'like', '%'.$request->search.'%')
+            ->get();
+        return response()->json($patients);
+    }
+
     
 
 }

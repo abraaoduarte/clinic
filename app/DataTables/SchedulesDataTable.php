@@ -74,10 +74,13 @@ class SchedulesDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->addAction(['title' => 'Ações'])
-                    ->parameters($this->getBuilderParameters());
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->addAction(['title' => 'Ações'])
+            ->parameters(
+                ['language' => 
+                ['url' => 'http://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese.json']
+            ]);
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Carbon\Carbon;
 use App\Models\Doctor;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\DataTables\DoctorsDataTable;
 use App\Http\Requests\StoreDoctorRequest;
@@ -53,6 +54,14 @@ class DoctorController extends Controller
     	flash('Médico Deletado!')->error();
     	return redirect()->route('doctors');
 
+    }
+
+    public function search(Request $request)
+    {
+        $doctors = Doctor::select('id', 'name as text')
+            ->where('name', 'like', '%'.$request->search.'%')
+            ->get();
+        return response()->json($doctors);
     }
 
 

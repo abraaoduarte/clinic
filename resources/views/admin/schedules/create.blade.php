@@ -15,7 +15,7 @@
 					{{ Form::label('doctor_id', 'Médico') }}
 					{{ Form::select(
 							'doctor_id', 
-							$doctors, 
+							[], 
 							null, 
 							[
 								'class' => 'form-control'.
@@ -36,7 +36,7 @@
 					{{ Form::label('patient_id', 'Paciente') }}
 					{{ Form::select(
 							'patient_id', 
-							$patients, 
+							[],
 							null, 
 							[
 								'class' => 'form-control'.
@@ -54,7 +54,7 @@
 
 			<div class="col-4">
 				<div class="form-group">
-					{{ Form::label('date', 'Data & Hora da Consulta') }}
+					{{ Form::label('date', 'Data & Hora da Consulta (d/m/Y H:m)') }}
 					{{ Form::text(
 							'date',
 							null,
@@ -100,5 +100,9 @@
 		</div>
 		{!! Form::close() !!}
 	</div>
+@endsection
 
+
+@section('scripts')
+	<script src="{{ asset('js/searchSchedules.js') }}"></script>
 @endsection

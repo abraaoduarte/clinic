@@ -15,7 +15,7 @@
 					{{ Form::label('doctor_id', 'Médico') }}
 					{{ Form::select(
 							'doctor_id', 
-							$doctors, 
+							$doctor, 
 							$schedule->doctor_id, 
 							[
 								'class' => 'form-control'.
@@ -36,7 +36,7 @@
 					{{ Form::label('patient_id', 'Paciente') }}
 					{{ Form::select(
 							'patient_id', 
-							$patients, 
+							$patient,
 							$schedule->patient_id, 
 							[
 								'class' => 'form-control'.
@@ -100,5 +100,8 @@
 		</div>
 		{!! Form::close() !!}
 	</div>
+@endsection
 
+@section('scripts')
+	<script src="{{ asset('js/searchSchedules.js') }}"></script>
 @endsection

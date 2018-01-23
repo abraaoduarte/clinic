@@ -2,6 +2,10 @@
 
 @import "font-awesome/scss/font-awesome";
 
+@import "select2/src/scss/core.scss";
+
+@import "select2-bootstrap4-theme/src/select2-bootstrap4.scss";
+
 $color-font: #333;
 .content__form {
 	margin: 70px 0;

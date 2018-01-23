@@ -18,7 +18,12 @@ mix.scripts([
 	'node_modules/popper.js/dist/umd/popper.js',
 	'node_modules/bootstrap/dist/js/bootstrap.js',
 	'node_modules/jquery-mask-plugin/dist/jquery.mask.min.js',
+	'node_modules/select2/dist/js/select2.min.js',
 ], 'public/js/libs.js');
+
+mix.scripts([
+		'resources/assets/js/searchSchedules.js',
+	], 'public/js/searchSchedules.js');
 
 mix.sass('resources/assets/sass/admin.scss', 'public/css',{
 	includePaths: ['node_modules']
