@@ -18,6 +18,8 @@ Route::get('/', 'HomeController@index');
 });**/
 Route::group(['middleware' => ['auth']], function () {
 	Route::get('home', 'HomeController@index')->name('home');
+	//Route::get('logout', 'HomeController@logout')->name('logout')->name('logout');
+	
 	Route::prefix('admin')->group(function () {
 		Route::get('users', 'Admin\UserController@index')->name('users');
 		Route::get('user/create', 'Admin\UserController@create')->name('user.create');

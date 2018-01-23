@@ -8,28 +8,9 @@
 		<h1>Editar Agendamento</h1>
 		{!! Form::open(['route' => ['schedule.edit', $schedule->id], 'method' => 'put']) !!}
 		<div class="row">
-			<div class="col-3">
-				<div class="form-group">
-					{{ Form::label('user_id', 'Usuário') }}
-					{{ Form::select(
-							'user_id', 
-							$users, 
-							$schedule->user_id, 
-							[
-								'class' => 'form-control'.
-									($errors->has('user_id') ? ' is-invalid' : '' )
-							]
-						) 
-					}}
-					@if($errors->first('user_id'))
-					<div class="invalid-feedback">
-						{{ $errors->first('user_id') }}
-					</div>
-					@endif
-				</div>
-			</div>
+			
 
-			<div class="col-3">
+			<div class="col-4">
 				<div class="form-group">
 					{{ Form::label('doctor_id', 'Médico') }}
 					{{ Form::select(
@@ -50,7 +31,7 @@
 				</div>
 			</div>
 
-			<div class="col-3">
+			<div class="col-4">
 				<div class="form-group">
 					{{ Form::label('patient_id', 'Paciente') }}
 					{{ Form::select(
@@ -71,7 +52,7 @@
 				</div>
 			</div>
 
-			<div class="col-3">
+			<div class="col-4">
 				<div class="form-group">
 					{{ Form::label('date', 'Data & Hora da Consulta') }}
 					{{ Form::text(

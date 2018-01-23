@@ -51,7 +51,10 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a href="{{ url('admin/logout') }}" class="nav-link">Sair</a>
+          {!! Form::open(['route' => 'logout', 'method' => 'post']) !!}
+            {{ Form::submit('Sair', ['class' => 'btn btn-primary']) }}
+          {!! Form::close() !!}
+          
         </li>
       </ul>
      

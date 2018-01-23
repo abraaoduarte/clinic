@@ -49,7 +49,6 @@ class UserController extends Controller
     {  
         $user = User::find($id);
         $user->delete();
-
         flash('Usuário Deletado!')->error();
         return redirect()->route('users');
     }

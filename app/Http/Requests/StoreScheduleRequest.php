@@ -25,7 +25,7 @@ class StoreScheduleRequest extends FormRequest
     {
         return [
             'date'       => 'required',
-            'user_id'    => 'required',
+            //'user_id'    => 'required',
             'doctor_id'  => 'required',
             'patient_id' => 'required',
 
@@ -36,7 +36,7 @@ class StoreScheduleRequest extends FormRequest
     {
         return [
             'date.required'       => 'Obrigatório!',
-            'user_id.required'    => 'Obrigatório!',
+            //'user_id.required'    => 'Obrigatório!',
             'doctor_id.required'  => 'Obrigatório!',
             'patient_id.required' => 'Obrigatório!',
         ];

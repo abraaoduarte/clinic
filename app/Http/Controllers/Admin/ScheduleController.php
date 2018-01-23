@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Auth;
 use App\Models\User;
 use App\Models\Doctor;
 use App\Models\Schedule;
@@ -32,6 +33,7 @@ class ScheduleController extends Controller
     public function store(StoreScheduleRequest $request)
     {
     	$request['date'] = convert_date_time($request->input('date'));
+        $request['user_id'] = Auth::id();
     	$schedule = Schedule::create($request->all());
         flash('Consulta Agendada!')->success();
         return redirect()->route('schedules');
@@ -53,8 +55,10 @@ class ScheduleController extends Controller
 
     public function update(UpdateScheduleRequest $request, $id)
     {
+
     	$schedule = Schedule::find($id);
     	$request['date'] = convert_date_time($request->input('date'));
+        $request['user_id'] = Auth::id();
     	$schedule->update($request->all());
         flash('Paciente Atualizado!')->success();
 
