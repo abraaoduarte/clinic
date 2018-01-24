@@ -34,6 +34,6 @@ class User extends Authenticatable
 
     public function schedule()
     {
-        return $this->belongsTo('App\Models\Schedule');
+        return $this->hasOne('App\Models\Schedule');
     }
 }

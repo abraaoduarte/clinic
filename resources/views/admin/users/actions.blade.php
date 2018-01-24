@@ -14,3 +14,9 @@
     @endif
   {!! Form::close() !!}
 </div>
+
+<div class="btn-group">
+  <a href="#" class="btn btn-success btn-sm js-open-modal" data-id="{{ $id }}">
+    <i class="fa fa-search" aria-hidden="true"></i>
+  </a>
+</div>

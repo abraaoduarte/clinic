@@ -23,6 +23,7 @@ $('.js-datatable').on('click', '.js-button-delete', event => {
 });
 
 
+
 $('#birthday, #date').mask('00/00/0000 99:99');
 $('#rg').mask('99.999.999-99');
 $('#cpf').mask('999.999.999-99');

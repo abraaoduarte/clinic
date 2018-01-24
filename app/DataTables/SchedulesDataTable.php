@@ -76,7 +76,7 @@ class SchedulesDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['title' => 'Ações'])
+            ->addAction(['title' => 'Ações', 'width' => '90px'])
             ->parameters(
                 ['language' => 
                 ['url' => 'http://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese.json']
@@ -95,6 +95,8 @@ class SchedulesDataTable extends DataTable
                 'data'  => 'id',
                 'name'  => 'id',
                 'title' => '#',
+                'width' => '1px',
+                'className' => 'dt-center',
             ],
             'date' => [
                 'data'  => 'date',
@@ -120,11 +122,15 @@ class SchedulesDataTable extends DataTable
                 'data'  => 'created_at',
                 'name'  => 'created_at',
                 'title' => 'Criado',
+                'width' => '1px',
+                'className' => 'dt-center',
             ],
             'updated_at' => [
                 'data'  => 'updated_at',
                 'name'  => 'updated_at',
                 'title' => 'Atualizado',
+                'width' => '1px',
+                'className' => 'dt-center',
             ]
 
         ];

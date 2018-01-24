@@ -43,7 +43,17 @@ class DoctorsDataTable extends DataTable
      */
     public function query(Doctor $model)
     {
-        return $model->newQuery()->select('id', 'name', 'created_at', 'updated_at');
+        return $model
+            ->newQuery()
+            ->select
+                (
+                    'id', 
+                    'name',
+                    'speciality',
+                    'hospital',
+                    'created_at', 
+                    'updated_at'
+                );
     }
 
     /**
@@ -56,7 +66,7 @@ class DoctorsDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['title' => 'Ações'])
+            ->addAction(['title' => 'Ações', 'width' => '90px'])
             ->parameters(
                 ['language' => 
                 ['url' => 'http://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese.json']
@@ -74,22 +84,40 @@ class DoctorsDataTable extends DataTable
            'id' => [
             'data'  => 'id',
             'name'  => 'id',
-            'title' => '#'
+            'title' => '#',
+            'width' => '1px',
+            'className' => 'dt-center',
            ],
            'name' => [
             'data'  => 'name',
             'name'  => 'name',
             'title' => 'Nome',
            ],
+           'speciality' => [
+            'data'  => 'speciality',
+            'name'  => 'speciality',
+            'title' => 'Especialidade',
+            'className' => 'dt-center',
+           ],
+           'hospital' => [
+            'data'  => 'hospital',
+            'name'  => 'hospital',
+            'title' => 'Hospital',
+            'className' => 'dt-center',
+           ],
            'created_at' => [
             'data'  => 'created_at',
             'name'  => 'created_at',
-            'title' => 'Criado'
+            'title' => 'Criado',
+            'width' => '1px',
+            'className' => 'dt-center',
            ],
            'updated_at' => [
             'data'  => 'updated_at',
             'name'  => 'updated_at',
             'title' => 'Atualizado',
+            'width' => '1px',
+            'className' => 'dt-center',
            ]
 
         ];

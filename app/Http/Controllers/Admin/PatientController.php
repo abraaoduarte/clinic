@@ -65,6 +65,11 @@ class PatientController extends Controller
         return response()->json($patients);
     }
 
-    
+    public function show($id)
+    {
+        $patient = Patient::find($id);
+        return view('admin.patients.search_patient')->with('patient', $patient);
+
+    }
 
 }

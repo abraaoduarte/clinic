@@ -65,5 +65,11 @@ class ScheduleController extends Controller
         return redirect()->route('schedules');
     }
 
+    public function show($id)
+    {
+        $schedule = Schedule::find($id);
+        return view('admin.schedules.search_schedule')->with('schedule', $schedule);
+
+    }
     
 }

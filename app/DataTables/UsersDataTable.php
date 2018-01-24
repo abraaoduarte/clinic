@@ -3,6 +3,7 @@
 namespace App\DataTables;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Yajra\DataTables\Services\DataTable;
 
 class UsersDataTable extends DataTable
@@ -23,6 +24,12 @@ class UsersDataTable extends DataTable
             ->editColumn('updated_at', function ($query) {
                 return $query->updated_at ? $query->updated_at->format('d/m/Y') : '';
             })
+            ->editColumn('is_admin', function ($query) {
+                return ($query->is_admin) ? 'Sim' : 'Não';
+            })
+            ->editColumn('is_active', function ($query) {
+                return ($query->is_active) ? 'Sim' : 'Não';
+            })
             ->filterColumn('created_at', function ($query, $keyword) {
                 $query->whereRaw(
                     "DATE_FORMAT(created_at,'%d/%m/%Y') like ?", ["%$keyword%"]
@@ -31,6 +38,30 @@ class UsersDataTable extends DataTable
             ->filterColumn('updated_at', function ($query, $keyword) {
                 $query->whereRaw(
                     "DATE_FORMAT(updated_at,'%d/%m/%Y') like ?", ["%$keyword%"]
+                );
+            })
+            ->filterColumn('is_admin', function ($query, $keyword) {
+                $keywordFormat = strtolower(Str::ascii($keyword));
+                if($keywordFormat === 'sim') {
+                    $keyword = 1; 
+                }
+                if($keywordFormat === 'nao') { 
+                    $keyword = 0; 
+                }
+                $query->whereRaw(
+                    "is_admin like ?", ["%$keyword%"]
+                );
+            })
+            ->filterColumn('is_active', function ($query, $keyword) {
+                $keywordFormat = strtolower(Str::ascii($keyword));
+                if($keywordFormat === 'sim') {
+                    $keyword = 1;
+                }
+                if($keywordFormat === 'nao') { 
+                    $keyword = 0; 
+                }
+                $query->whereRaw(
+                    "is_active like ?", ["%$keyword%"]
                 );
             });
     }
@@ -43,7 +74,17 @@ class UsersDataTable extends DataTable
      */
     public function query(User $model)
     {
-        return $model->newQuery()->select('id', 'name', 'email', 'updated_at', 'created_at');
+        return $model
+            ->newQuery()
+            ->select(
+                    'id', 
+                    'name', 
+                    'email', 
+                    'is_active',
+                    'is_admin',
+                    'updated_at', 
+                    'created_at'
+                    );
     }
 
     /**
@@ -56,7 +97,7 @@ class UsersDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['title' => 'Ações'])
+            ->addAction(['title' => 'Ações', 'width' => '85px'])
             ->parameters(
                 ['language' => 
                 ['url' => 'http://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese.json']
@@ -74,22 +115,42 @@ class UsersDataTable extends DataTable
            'id' => [
             'data'  => 'id',
             'name'  => 'id',
-            'title' => '#'
+            'title' => '#',
+            'width' => '1px',
+            'className' => 'dt-center',
            ],
            'name' => [
             'data'  => 'name',
             'name'  => 'name',
             'title' => 'Nome',
            ],
+           'is_admin' => [
+            'data'  => 'is_admin',
+            'name'  => 'is_admin',
+            'title' => 'Admin',
+            'width' => '1px',
+            'className' => 'dt-center',
+           ],
+           'is_active' => [
+            'data'  => 'is_active',
+            'name'  => 'is_active',
+            'title' => 'Ativo',
+            'width' => '1px',
+            'className' => 'dt-center',
+           ],
            'created_at' => [
             'data'  => 'created_at',
             'name'  => 'created_at',
-            'title' => 'Criado'
+            'title' => 'Criado',
+            'width' => '1px',
+            'className' => 'dt-center',
            ],
            'updated_at' => [
             'data'  => 'updated_at',
             'name'  => 'updated_at',
             'title' => 'Atualizado',
+            'width' => '1px',
+            'className' => 'dt-center',
            ]
 
         ];

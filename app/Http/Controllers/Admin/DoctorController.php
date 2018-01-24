@@ -64,5 +64,12 @@ class DoctorController extends Controller
         return response()->json($doctors);
     }
 
+    public function show($id)
+    {
+        $doctor = Doctor::find($id);
+        return view('admin.doctors.search_doctor')->with('doctor', $doctor);
+
+    }
+
 
 }

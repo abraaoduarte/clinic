@@ -22,16 +22,16 @@ class Schedule extends Model
 
     public function user()
     {
-        return $this->hasOne('App\Models\User');
+        return $this->belongsTo('App\Models\User');
     }
 
     public function doctor()
     {
-        return $this->hasOne('App\Models\Doctor');
+        return $this->belongsTo('App\Models\Doctor');
     }
 
     public function patient()
     {
-        return $this->hasOne('App\Models\Patient');
+        return $this->belongsTo('App\Models\Patient');
     }
 }

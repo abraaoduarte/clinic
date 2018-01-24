@@ -39,7 +39,7 @@ class UserController extends Controller
 
     public function update(UpdateUserRequest $request, $id)
     {
-        if ($request->get('password') == '') {
+        if (!$request->input('password')) {
             $request = $request->except('password');
         } else {
             $request['password'] = bcrypt($request->input('password'));
@@ -57,6 +57,13 @@ class UserController extends Controller
         $user->delete();
         flash('Usuário Deletado!')->error();
         return redirect()->route('users');
+    }
+
+    public function show($id)
+    {
+        $user = User::find($id);
+        return view('admin.users.search_user')->with('user', $user);
+
     }
 
 
