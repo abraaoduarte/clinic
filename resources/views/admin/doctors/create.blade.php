@@ -327,14 +327,14 @@
 
 				<div class="col-6">
 					<div class="form-group">
-						{!! Form::label('Hospital', 'Hospital') !!}
+						{!! Form::label('hospital', 'Hospital') !!}
 						{!! 
 							Form::text(
-						  	'Hospital',
+						  	'hospital',
 						  	null,
 						  	[
 						  		'class' => 'form-control',
-									'id' => 'Hospital',
+									'id' => 'hospital',
 									'placeholder' => 'Hospital'
 								]
 							) 
