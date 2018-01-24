@@ -14,7 +14,7 @@
   	@include('flash::message')
 	@yield('content')
   </div>
-	@include('admin.partials.footer')
+	
 	@include('admin.partials.js')
 	@yield('scripts')
 </body>
