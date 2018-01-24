@@ -6,7 +6,7 @@ $(function(){
 		allowClear: true,
 		placeholder: "Selecione...",
 		ajax: {
-			url: 'http://clinic.local/admin/doctor/search/',
+			url: "{{ route('doctor.search') }}",
 			dataType: 'json',
 			data: function (params) {
 				return {
@@ -28,7 +28,7 @@ $(function(){
 		allowClear: true,
 		placeholder: "Selecione...",
 		ajax: {
-			url: 'http://clinic.local/admin/patient/search/',
+			url: "{{ route('patient.search') }}",
 			dataType: 'json',
 			data: function (params) {
 				return {
