@@ -26,8 +26,8 @@ class UpdateUserRequest extends FormRequest
         return [
             'name'                  => 'required',
             'email'                 => 'required|email|unique:users,email,'.$this->id,
-            'password'              => 'required|confirmed|min:6',
-            'password_confirmation' => 'required|min:6',
+            'password'              => 'nullable|confirmed|min:6',
+            'password_confirmation' => 'nullable|min:6',
 
         ];
     }
@@ -39,11 +39,11 @@ class UpdateUserRequest extends FormRequest
             'email.required'                 => 'Email Obrigatório!',
             'email.email'                    => 'Email inválido: user@domain.com!',
             'email.unique'                   => 'Este email já está cadastrado!',
-            'password.required'              => 'Nome Obrigatório!',
+            'password.required'              => 'Senha Obrigatória!',
             'password.min'                   => 'Mínimo 6 caracteres!',
-            'password.confirmed'               => 'Confirme a senha!!',
+            'password.confirmed'             => 'Confirme a senha!!',
             'password_confirmation.required' => 'Confirme a senha!',
-            'password_confirmation.min' => 'Mínimo 6 Caracteres!',
+            'password_confirmation.min'      => 'Mínimo 6 Caracteres!',
 
         ];
     }

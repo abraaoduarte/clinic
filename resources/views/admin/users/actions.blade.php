@@ -4,11 +4,13 @@
   </a>
 </div>
 <div class="btn-group">
+  @if($name != 'Admin' && auth()->user()->name != $name)
 	{!! Form::open(['route' => ['user.delete', $id],
                   'method' => 'delete']) !!}
   	{!! Form::button('<i class="fa fa-times" aria-hidden="true"></i>',
   		              ['type' => 'submit',
   		              'class' => 'btn btn-danger btn-sm js-button-delete'])
   	!!}
+    @endif
   {!! Form::close() !!}
 </div>

@@ -24,7 +24,8 @@ class UserController extends Controller
 
     public function store(StoreUserRequest $request)
     {
-    	$request['password'] = bcrypt($request->input('password'));
+        $request['password'] = bcrypt($request->input('password'));
+        
         $user = User::create($request->all());
         flash('Usuário Cadastrado!')->success();
         return redirect()->route('users');
@@ -38,9 +39,14 @@ class UserController extends Controller
 
     public function update(UpdateUserRequest $request, $id)
     {
+        if ($request->get('password') == '') {
+            $request = $request->except('password');
+        } else {
+            $request['password'] = bcrypt($request->input('password'));
+            $request = $request->all();
+        }
         $user = User::find($id);
-        $request['password'] = bcrypt($request->input('password'));
-        $user->update($request->all());
+        $user->update($request);
         flash('Usuário Atualizado!')->success();
         return redirect()->route('users');
     }
