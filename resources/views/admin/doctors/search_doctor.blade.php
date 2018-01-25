@@ -24,6 +24,24 @@
 		<strong>Pais: </strong> {{ $doctor->country }} <br>
 		<strong>Hospital: </strong> {{ $doctor->hospital }} <br>
 	</div>
+
+	<hr>
+	<div class="col-12">
+		@if(count($doctor->schedule))
+		<ul class="list-group">
+			<li class="list-group-item active">Agendamento</li>					
+			@foreach($doctor->schedule as $schedule)
+				<li class="list-group-item">
+					<strong>Dia: </strong>{{ $schedule->date->format('d/m/Y H:i') }} /
+					<strong>Paciente: </strong> {{ $schedule->patient->name }}
+				</li>
+			@endforeach
+		</ul>
+		@else
+			<div class="alert alert-danger">Nenhuma consulta marcada!</div>
+		@endif		
+	</div>
+
 </div>
 
 

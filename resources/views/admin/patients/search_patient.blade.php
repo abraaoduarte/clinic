@@ -38,6 +38,24 @@
     <div class="col-12">
         <strong>Descrição: </strong> {{ $patient->description }} <br>
     </div>
+	
+	<hr>
+	<div class="col-12">
+		@if(count($patient->schedule))
+		<ul class="list-group">
+			<li class="list-group-item active">Agendamento</li>					
+			@foreach($patient->schedule as $schedule)
+				<li class="list-group-item">
+					<strong>Dia: </strong>{{ $schedule->date->format('d/m/Y H:i') }} /
+					<strong>Médico: </strong> {{ $schedule->doctor->name }}
+				</li>
+			@endforeach
+		</ul>
+		@else
+			<div class="alert alert-danger">Nenhum agendamento marcado!</div>
+		@endif		
+	</div>
+
 </div>
 
 

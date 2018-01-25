@@ -32,6 +32,6 @@ class Doctor extends Model
 
     public function schedule()
     {
-        return $this->hasOne('App\Models\Schedule');
+        return $this->hasMany('App\Models\Schedule');
     }
 }
