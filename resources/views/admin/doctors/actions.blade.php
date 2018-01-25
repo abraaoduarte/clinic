@@ -14,7 +14,9 @@
 </div>
 
 <div class="btn-group">
-  <a href="#" class="btn btn-success btn-sm js-open-modal" data-id="{{ $id }}">
+  <a href="#" 
+  class="btn btn-success btn-sm js-open-modal" 
+  data-id="/admin/doctor/{{ $id }}/show">
     <i class="fa fa-search" aria-hidden="true"></i>
   </a>
 </div>

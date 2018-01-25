@@ -14,7 +14,7 @@
 		role="dialog" 
 		aria-labelledby="mySmallModalLabel" 
 		aria-hidden="true"
-		id="modal-schedule">
+		id="modal-search">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -24,7 +24,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<div id="result"></div>
+					<div id="result-search-modal"></div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -36,21 +36,5 @@
 @endsection
 
 @section('scripts')
-	<script>
-		$('.js-datatable').on('click', '.js-open-modal', event => {
-			event.stopPropagation();
-			event.preventDefault();
-			
-			let idSchedule = event.currentTarget.getAttribute('data-id');
-			$.ajax({
-				method: "GET",
-				url: "/admin/schedule/"+idSchedule+"/show",
-			})
-			.done(function( data ) {
-					$('#result').html(data);
-					$("#modal-schedule").modal();
-			});
-		});
-	</script>
 	{!! $dataTable->scripts() !!}
 @endsection

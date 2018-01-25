@@ -22,7 +22,27 @@ $('.js-datatable').on('click', '.js-button-delete', event => {
 	});
 });
 
-
+$('.js-datatable').on('click', '.js-open-modal', event => {
+	event.stopPropagation();
+	event.preventDefault();
+	
+	let urlSearch = event.currentTarget.getAttribute('data-id');
+	if(urlSearch){
+		$.ajax({
+			method: "GET",
+			url: urlSearch,
+		})
+		.done(function( data ) {
+				$('#result-search-modal').html(data);
+				$("#modal-search").modal();
+		})
+		.fail(function(xhr, textStatus, errorThrown) {
+			console.log('Erro ao executar função: ' +xhr.textStatus);
+		});
+	}else{
+		console.log('Error: Essa url não existe!');
+	}
+});
 
 $('#birthday, #date').mask('00/00/0000 99:99');
 $('#rg').mask('99.999.999-99');

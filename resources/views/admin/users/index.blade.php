@@ -12,7 +12,7 @@
 		role="dialog" 
 		aria-labelledby="mySmallModalLabel" 
 		aria-hidden="true"
-		id="modal-user">
+		id="modal-search">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -22,7 +22,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<div id="result"></div>
+					<div id="result-search-modal"></div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -36,21 +36,5 @@
 
 
 @section('scripts')
-	<script>
-		$('.js-datatable').on('click', '.js-open-modal', event => {
-			event.stopPropagation();
-			event.preventDefault();
-			
-			let idUser = event.currentTarget.getAttribute('data-id');
-			$.ajax({
-				method: "GET",
-				url: "/admin/user/"+idUser+"/show",
-			})
-			.done(function( data ) {
-					$('#result').html(data);
-					$("#modal-user").modal();
-			});
-		});
-	</script>
 	{!! $dataTable->scripts() !!}
 @endsection

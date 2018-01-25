@@ -159,6 +159,26 @@ $('.js-datatable').on('click', '.js-button-delete', function (event) {
 	});
 });
 
+$('.js-datatable').on('click', '.js-open-modal', function (event) {
+	event.stopPropagation();
+	event.preventDefault();
+
+	var urlSearch = event.currentTarget.getAttribute('data-id');
+	if (urlSearch) {
+		$.ajax({
+			method: "GET",
+			url: urlSearch
+		}).done(function (data) {
+			$('#result-search-modal').html(data);
+			$("#modal-search").modal();
+		}).fail(function (xhr, textStatus, errorThrown) {
+			console.log('Erro ao executar função: ' + xhr.textStatus);
+		});
+	} else {
+		console.log('Error: Essa url não existe!');
+	}
+});
+
 $('#birthday, #date').mask('00/00/0000 99:99');
 $('#rg').mask('99.999.999-99');
 $('#cpf').mask('999.999.999-99');
