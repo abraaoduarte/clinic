@@ -27,21 +27,24 @@ $('.js-datatable').on('click', '.js-open-modal', event => {
 	event.preventDefault();
 	
 	let urlSearch = event.currentTarget.getAttribute('data-id');
-	if(urlSearch){
-		$.ajax({
-			method: "GET",
-			url: urlSearch,
-		})
-		.done(function( data ) {
-				$('#result-search-modal').html(data);
-				$("#modal-search").modal();
-		})
-		.fail(function(xhr, textStatus, errorThrown) {
-			console.log('Erro ao executar função: ' +xhr.textStatus);
-		});
-	}else{
-		console.log('Error: Essa url não existe!');
+
+	if(!urlSearch){
+		console.error('Error: Essa url não existe!');
+		return false;
 	}
+
+	$.ajax({
+		method: "GET",
+		url: urlSearch,
+	})
+	.done(function( data ) {
+			$('#result-search-modal').html(data);
+			$("#modal-search").modal();
+	})
+	.fail(function(xhr, textStatus, errorThrown) {
+		console.error('Erro ao executar função: ' +xhr.textStatus);
+	});
+	
 });
 
 $('#birthday, #date').mask('00/00/0000 99:99');
